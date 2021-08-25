@@ -1,10 +1,15 @@
 import express from 'express';
 import { Request, Response } from 'express';
 import { JwtPayload } from 'jsonwebtoken';
+import authRouter from './auth/routes';
+
 import usersRouter from './resources/users/routes';
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+
+import loginAuth from './middleware/loginAuth';
+
 declare global {
   namespace Express {
     interface Request {
@@ -24,6 +29,11 @@ app.use(cookieParser());
 app.use(cors({ origin: 'http://localhost:3001', credentials: true }));
 
 // Routes
+
+// login
+app.use(authRouter);
+
+app.use(loginAuth);
 
 app.use('/users', usersRouter);
 

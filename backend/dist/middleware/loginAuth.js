@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const authGenerator_1 = require("../utilities/authGenerator");
+const authgenerator_1 = require("../utilities/authgenerator");
 exports.default = (req, res, next) => {
     const token = req.cookies.token;
-    const userData = token && authGenerator_1.validateToken(token);
+    const userData = token && authgenerator_1.validateToken(token);
     if (userData) {
         req.currentUser = userData;
         next();
