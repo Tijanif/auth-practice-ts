@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createAUser = exports.getAllUsers = void 0;
-// import { createToken } from '../../utilities/authgenerator';
 const services_1 = __importDefault(require("./services"));
 const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const allUsers = yield services_1.default.findMany();

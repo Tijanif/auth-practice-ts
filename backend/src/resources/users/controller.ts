@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-// import { createToken } from '../../utilities/authgenerator';
+import { createToken } from '../../utilities/authGenerator';
 import user from './services';
 
 export const getAllUsers = async (req: Request, res: Response) => {
